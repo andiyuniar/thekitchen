@@ -6,6 +6,7 @@ namespace Kitchen.Model
 {
     public class Recipe 
     {
+        public string Id { get; set; }
         public string Title { get; set; }
         public string ImgUrl { get; set; }
         public double Rating { get; set; }

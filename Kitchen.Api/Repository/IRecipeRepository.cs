@@ -9,5 +9,6 @@ namespace Kitchen.Api.Repository
     public interface IRecipeRepository
     {
         Task<IEnumerable<Recipe>> GetRecipes();
+        Task<Recipe> GetRecipeDetail(string Id);
     }
 }

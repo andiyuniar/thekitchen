@@ -6,6 +6,6 @@ namespace Kitchen.Model
     {
         public int Status { get; set; }
         public string Message { get; set; }
-        public IEnumerable<T> Data { get; set; }
+        public T Data { get; set; }
     }
 }

@@ -15,17 +15,17 @@ else
         {
             <div class="card">
                 <div class="card-header">
-                    <h3>@item.Title</h3>
+                    <b>@item.Title</b>
                 </div>
                 <img class="card-img-top imageThumbnail" src="@item.ImgUrl" />
                 <div class="card-footer">
-                    <a href="/counter" class="btn btn-primary" role="button" aria-pressed="true">Details</a>
+                    <a href="/counter/@item.Id" class="btn btn-primary" role="button" aria-pressed="true">Details</a>
                 </div>
             </div>
         }
         <div class="card">
             <div class="card-header">
-                <h3>@Title</h3>
+                <b>@Title</b>
             </div>
             <div class="card-body">
                 <p>The image of food will be here</p>

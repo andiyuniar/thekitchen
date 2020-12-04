@@ -25,11 +25,52 @@ namespace Kitchen.Api.Services
                 foreach(var item in dbRecipes)
                 {
                     Kitchen.Model.Recipe recipe = new Recipe();
+                    recipe.Id = item.Id;
                     recipe.Title = item.Title;
                     recipe.ImgUrl = item.ImgUrl;
                     recipe.Rating = item.Rating;
 
                     result.Add(recipe);
+                }
+            }
+            return result;
+        }
+
+        public async Task<RecipeDetail> GetRecipeDetail(string id)
+        {
+            RecipeDetail result = new RecipeDetail();
+            var recipe = await repo.GetRecipeDetail(id);
+
+            if (recipe != null)
+            {
+                result.Id = recipe.Id;
+                result.Title = recipe.Title;
+                result.ImgUrl = recipe.ImgUrl;
+                result.Description = recipe.Description;
+                result.Rating = recipe.Rating;
+                if (recipe.Ingredients != null)
+                {
+                    foreach(var item in recipe.Ingredients)
+                    {
+                        Ingredient ingredient = new Ingredient
+                        {
+                            Item = item.Item,
+                            Quantity = item.Quantity
+                        };
+                        result.Ingredients.Add(ingredient);
+                    }
+                }
+                if (recipe.Instructions != null)
+                {
+                    foreach(var data in recipe.Instructions)
+                    {
+                        Instruction instruction = new Instruction
+                        {
+                            Step = data.Step,
+                            Description = data.Description
+                        };
+                        result.Instructions.Add(instruction);
+                    }
                 }
             }
             return result;

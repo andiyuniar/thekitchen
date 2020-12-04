@@ -16,10 +16,10 @@ namespace Kitchen.Services
 
         public async Task<IEnumerable<Recipe>> GetRecipes()
         {
-            HttpResponseMessage response = await httpClient.GetAsync("api/recipe");
+            HttpResponseMessage response = await httpClient.GetAsync("api/Recipe/GetRecipes");
             response.EnsureSuccessStatusCode();
             var jsonstr = await response.Content.ReadAsStringAsync();
-            var res = JsonConvert.DeserializeObject<ResponseModel<Recipe>>(jsonstr);
+            var res = JsonConvert.DeserializeObject<ResponseModel<IEnumerable<Recipe>>>(jsonstr);
 
             return res.Data;
         }

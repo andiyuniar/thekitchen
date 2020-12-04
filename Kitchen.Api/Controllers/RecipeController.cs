@@ -2,13 +2,14 @@
 using Kitchen.Model;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Kitchen.Api.Controllers
 {
     [ApiController]
     [Produces("application/json")]
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     public class RecipeController : ControllerBase
     {
         private readonly IRecipeService service;
@@ -19,9 +20,9 @@ namespace Kitchen.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<ResponseModel<Kitchen.Model.Recipe>> GetRecipes()
+        public async Task<ResponseModel<IEnumerable<Kitchen.Model.Recipe>>> GetRecipes()
         {
-            var response = new ResponseModel<Kitchen.Model.Recipe>();
+            var response = new ResponseModel<IEnumerable<Kitchen.Model.Recipe>>();
 
             try
             {
@@ -36,5 +37,24 @@ namespace Kitchen.Api.Controllers
 
             return response;
         }
+
+        [HttpGet]
+        public async Task<ResponseModel<RecipeDetail>> GetRecipeById(string id)
+        {
+            var response = new ResponseModel<RecipeDetail>();
+            try
+            {
+                response.Data = await service.GetRecipeDetail(id);
+                response.Status = 200;
+            }
+            catch (Exception ex)
+            {
+                response.Status = 500;
+                response.Message = ex.Message;
+            }
+            return response;
+        }
+
+
     }
 }
