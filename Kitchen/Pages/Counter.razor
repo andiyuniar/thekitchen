@@ -1,0 +1,54 @@
+﻿@page "/counter"
+@using Kitchen.Components.TabControl
+
+<h1>Counter</h1>
+
+<p>Current count: @currentCount</p>
+<p>@message</p>
+
+<button class="btn btn-primary" @onclick="ShowMessage">Click me</button>
+
+<p>
+    <input @bind="currentValue" />Current Value: @currentValue
+</p>
+
+<p>
+    <input @bind="CurrentValue" /> Current value: @CurrentValue
+</p>
+<div>
+    <TabControl>
+        <TabPage Text="Tab 1">
+            <h1>The first tab</h1>
+        </TabPage>
+        <TabPage Text="Tab 2">
+            <h1>The second tab</h1>
+        </TabPage>
+        <TabPage Text="Tab 3">
+            <h1>The third tab</h1>
+        </TabPage>
+    </TabControl>
+</div>
+
+@code {
+
+    private string currentValue = "INI INIT VALUENYA";
+
+    private int currentCount = 0;
+
+    private string message = string.Empty;
+
+    private string CurrentValue { get; set; }
+
+    private void IncrementCount()
+    {
+        currentCount++;
+    }
+
+    private void ShowMessage(MouseEventArgs e)
+    {
+        message = $"The mouse is at coordinate: {e.ScreenX}:{e.ScreenY}";
+
+    }
+
+
+}
