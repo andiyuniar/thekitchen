@@ -23,5 +23,15 @@ namespace Kitchen.Services
 
             return res.Data;
         }
+
+        public async Task<RecipeDetail> GetRecipeById(string id)
+        {
+            HttpResponseMessage response = await httpClient.GetAsync($"api/Recipe/GetRecipeById?id={id}");
+            response.EnsureSuccessStatusCode();
+            var json = await response.Content.ReadAsStringAsync();
+            var result = JsonConvert.DeserializeObject<ResponseModel<RecipeDetail>>(json);
+
+            return result.Data;
+        }
     }
 }

@@ -1,0 +1,35 @@
+﻿@page "/detail/{Id}"
+@inherits RecipeDetailBase
+
+
+@if (Recipe == null)
+{
+    <div class="spinner"></div>
+}
+else
+{
+    <div class="main">
+        <card>
+            <div class="card-header">
+                <h4><b>@Recipe.Title</b></h4>
+            </div>
+            <img src="@Recipe.ImgUrl" class="img-fluid card-img-top" />
+            <div class="card-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 p-3">
+                            @Recipe.Description
+                        </div>
+                    </div>
+                    <div class="row">
+                        <Content Ingredients="@Recipe.Ingredients" Instructions="@Recipe.Instructions" />
+                    </div>
+                    <div class="row">
+                        @*Review will he here*@
+                    </div>
+                </div>
+            </div>
+        </card>
+    </div>
+
+}
