@@ -21,12 +21,11 @@ else
                             @Recipe.Description
                         </div>
                     </div>
-                    <div class="row">
-                        <Content Ingredients="@Recipe.Ingredients" Instructions="@Recipe.Instructions" />
-                    </div>
-                    <div class="row">
-                        @*Review will he here*@
-                    </div>
+                    <Content Ingredients="@Recipe.Ingredients" Instructions="@Recipe.Instructions" />
+                    <CascadingValue Value="@Recipe.Id" IsFixed="true">
+                        <ReviewForm />
+                        <ReviewList />
+                    </CascadingValue>
                 </div>
             </div>
         </card>

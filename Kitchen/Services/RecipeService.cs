@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Kitchen.Services
 {
+    /// <summary>
+    /// Provides methods to call recipes REST endpoint
+    /// </summary>
     public class RecipeService : IRecipeService
     {
         private readonly HttpClient httpClient;
@@ -31,6 +34,20 @@ namespace Kitchen.Services
             var json = await response.Content.ReadAsStringAsync();
             var result = JsonConvert.DeserializeObject<ResponseModel<RecipeDetail>>(json);
 
+            return result.Data;
+        }
+
+        public Task AddReview(Review review)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public async Task<IEnumerable<Review>> GetReviews(string recipeId)
+        {
+            HttpResponseMessage response = await httpClient.GetAsync($"api/recipe/getreviews?id={recipeId}");
+            response.EnsureSuccessStatusCode();
+            var jsonstr = await response.Content.ReadAsStringAsync();
+            var result = JsonConvert.DeserializeObject<ResponseModel<IEnumerable<Review>>>(jsonstr);
             return result.Data;
         }
     }

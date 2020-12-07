@@ -1,0 +1,118 @@
+{
+	"_id": {
+		"$oid": "5fcb4bebd84a7805c8b4e861"
+	},
+	"Type": 0,
+	"Title": "Tengkleng Solo",
+	"ImgUrl": "images/tengkleng.jpg",
+	"Description": "Sejenis sup dengan bahan utama tulang kambing. Bentuk fisik dari tengkleng hampir mirip dengan gulai kambing, tetapi kuahnya lebih encer dan ada juga dengan sedikit kuah.",
+	"Ingredients": [
+		{
+			"Item": "Daging dan tulang iga kambing",
+			"Quantity": "500 gram"
+		},
+		{
+			"Item": "Air",
+			"Quantity": "1.5 liter"
+		},
+		{
+			"Item": "Minyak sayur",
+			"Quantity": "3 sdm"
+		},
+		{
+			"Item": "Daun salam",
+			"Quantity": "2 lembar"
+		},
+		{
+			"Item": "Daun jeruk",
+			"Quantity": "2 lembar"
+		},
+		{
+			"Item": "Lengkuas di memarkan",
+			"Quantity": "2 cm"
+		},
+		{
+			"Item": "Kayu manis",
+			"Quantity": "3 cm"
+		},
+		{
+			"Item": "Cengkeh",
+			"Quantity": "5 butir"
+		},
+		{
+			"Item": "Cabe rawit merah",
+			"Quantity": "10 buah"
+		},
+		{
+			"Item": "Kemiri",
+			"Quantity": "4 butir"
+		},
+		{
+			"Item": "Ketumbar",
+			"Quantity": "1 sdt"
+		},
+		{
+			"Item": "Jinten",
+			"Quantity": "0,5 sdt"
+		},
+		{
+			"Item": "Bawang merah",
+			"Quantity": "5 butir"
+		},
+		{
+			"Item": "Bawang putih",
+			"Quantity": "3 siung"
+		},
+		{
+			"Item": "Jahe",
+			"Quantity": "2 cm"
+		},
+		{
+			"Item": "Gula pasir",
+			"Quantity": "1 sdt"
+		},
+		{
+			"Item": "Garam",
+			"Quantity": "2 sdt"
+		}
+	],
+	"Instructions": [
+		{
+			"Step": 1,
+			"Description": "Cuci bersih daging kambing dan tiriskan"
+		},
+		{
+			"Step": 2,
+			"Description": "Didihkan air, masukkan daging kambing dan masak hingga kotoran dan busa mengambang di permukaan. Angkat busa kotor"
+		},
+		{
+			"Step": 3,
+			"Description": "Masukkan serai, daun salam, lengkuas dan daun jeruk"
+		},
+		{
+			"Step": "4",
+			"Description": "Buat bumbu halus, Giling kemiri, ketumbar, jinten, bawang merah, bawang putih, jahe, gula pasir, dan garam hingga halus"
+		},
+		{
+			"Step": "5",
+			"Description": "Panaskan minyak, tumis bumbu halus hingga matang dan wangi"
+		},
+		{
+			"Step": "6",
+			"Description": "Angkat dan masukkan kedalam rebusan daging kambing"
+		},
+		{
+			"Step": "7",
+			"Description": "Masak dengan api kecil hingga daging benar benar empuk dan bumbu meresap"
+		},
+		{
+			"Step": "8",
+			"Description": "Sebelum diangkat, masukkan cabe rawit merah. Masak hingga layu."
+		},
+		{
+			"Step": "9",
+			"Description": "Sajikan hangat dengan taburan bawang merah goreng"
+		}
+	],
+	"Rating": 0
+}

@@ -1,7 +1,5 @@
 ﻿using Kitchen.Api.Models;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace Kitchen.Api.Repository
@@ -10,5 +8,7 @@ namespace Kitchen.Api.Repository
     {
         Task<IEnumerable<Recipe>> GetRecipes();
         Task<Recipe> GetRecipeDetail(string Id);
+        Task AddReview(Review data);
+        Task<IEnumerable<Review>> GetReviews(string recipeId);
     }
 }

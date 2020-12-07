@@ -55,6 +55,39 @@ namespace Kitchen.Api.Controllers
             return response;
         }
 
+        [HttpPost]
+        public async Task<ResponseModel<bool>> AddReview([FromBody]Review request)
+        {
+            var response = new ResponseModel<bool>();
+            try
+            {
+                await service.AddReview(request);
+                response.Data = true;
+                response.Status = 200;
+            }
+            catch(Exception ex)
+            {
+                response.Status = 500;
+                response.Message = ex.Message;
+            }
+            return response;
+        }
 
+        [HttpGet]
+        public async Task<ResponseModel<IEnumerable<Review>>> GetReviews(string id)
+        {
+            var response = new ResponseModel<IEnumerable<Review>>();
+            try
+            {
+                response.Data = await service.GetReviews(id);
+                response.Status = 200;
+            }
+            catch (Exception ex)
+            {
+                response.Status = 500;
+                response.Message = ex.Message;
+            }
+            return response;
+        }
     }
 }

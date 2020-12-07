@@ -1,0 +1,37 @@
+﻿@inherits ReviewFormBase
+
+<div class="row">
+    <div class="col-md-12">
+        <h5><b>Review:</b></h5>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12 mb-3">
+        <EditForm Model="@Review" OnValidSubmit="HandleValidSubmit">
+            <DataAnnotationsValidator />
+            <div class="row">
+                <div class="col-md-6 form-group">
+                    <label for="name" class="form-label">Name</label>
+                    <InputText class="form-control" id="name" @bind-Value="Review.Name" />
+                    <ValidationMessage For="@(() => Review.Name)" />
+                </div>
+                <div class="col-md-6 form-group">
+                    <label for="email" class="form-label">Email address</label>
+                    <InputText class="form-control" id="email" @bind-Value="Review.Email" placeholder="example@mail.com"  />
+                    <ValidationMessage For="@(() => Review.Email)" />
+                </div>
+            </div>
+            <div class="row mb-2">
+                <div class="col-md-12">
+                    <InputTextArea class="form-control" id="description" rows="5" @bind-Value="Review.Description"></InputTextArea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </EditForm>
+    </div>
+    
+</div>

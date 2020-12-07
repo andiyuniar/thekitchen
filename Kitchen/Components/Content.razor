@@ -1,0 +1,29 @@
+﻿@inherits ContentBase
+
+<div class="row">
+    @if (Ingredients != null)
+    {
+        <div class="col-md-6">
+            <h5><b>Ingredients:</b></h5>
+            <ul>
+                @foreach (var item in Ingredients)
+                {
+                    <li>@item.Quantity @item.Item</li>
+                }
+            </ul>
+        </div>
+    }
+
+    @if (Instructions != null)
+    {
+        <div class="col-md-6">
+            <h5><b>How to cook?</b></h5>
+            <ul>
+                @foreach (var instruction in Instructions)
+                {
+                    <li>@instruction.Step @instruction.Description</li>
+                }
+            </ul>
+        </div>
+    }
+</div>

@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Components;
 using System.Collections.Generic;
 
-namespace Kitchen.Pages
+namespace Kitchen.Components
 {
     public class ContentBase : ComponentBase
     {

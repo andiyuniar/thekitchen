@@ -14,6 +14,8 @@ namespace Kitchen.Pages
 
         protected Kitchen.Model.RecipeDetail Recipe { get; set; }
 
+        protected Kitchen.Model.Review Review { get; set; }
+
         protected override async Task OnInitializedAsync()
         {
             Recipe = await RecipeService.GetRecipeById(Id);

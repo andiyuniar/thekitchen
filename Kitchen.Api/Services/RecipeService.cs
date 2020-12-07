@@ -1,9 +1,8 @@
-﻿using System;
+﻿using Kitchen.Api.Repository;
+using Kitchen.Model;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Kitchen.Api.Repository;
-using Kitchen.Model;
 
 namespace Kitchen.Api.Services
 {
@@ -20,7 +19,7 @@ namespace Kitchen.Api.Services
             List<Recipe> result = new List<Recipe>();
             var dbRecipes = (await repo.GetRecipes()).ToList();
 
-            if (dbRecipes.Count > 0)
+            if (dbRecipes != null && dbRecipes.Count > 0)
             {
                 foreach(var item in dbRecipes)
                 {
@@ -76,9 +75,40 @@ namespace Kitchen.Api.Services
             return result;
         }
 
-        private double GetRatingAverage(List<Kitchen.Api.Models.Review> review)
+        public async Task AddReview(Kitchen.Model.Review review)
         {
-            return review.Select(r => r.Rating).DefaultIfEmpty(0).Average();
+            Kitchen.Api.Models.Review dbReview = new Models.Review
+            {
+                Name = review.Name,
+                Email = review.Email,
+                Description = review.Description,
+                Rating = review.Rating,
+                RecipeId = review.RecipeId
+            };
+
+            await repo.AddReview(dbReview);
+        }
+
+        public async Task<IEnumerable<Review>> GetReviews(string id)
+        {
+            List<Review> result = new List<Review>();
+            var reviews = (await repo.GetReviews(id)).ToList();
+            if(reviews != null && reviews.Count > 0)
+            {
+                foreach(var review in reviews)
+                {
+                    Review _review = new Review
+                    {
+                        Name = review.Name,
+                        Email = review.Email,
+                        Description = review.Description,
+                        Rating = review.Rating,
+                        RecipeId = review.RecipeId
+                    };
+                    result.Add(_review);
+                }
+            }
+            return result;
         }
     }
 }

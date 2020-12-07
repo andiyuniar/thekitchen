@@ -8,5 +8,7 @@ namespace Kitchen.Api.Services
     {
         Task<IEnumerable<Recipe>> GetRecipes();
         Task<RecipeDetail> GetRecipeDetail(string id);
+        Task AddReview(Review review);
+        Task<IEnumerable<Review>> GetReviews(string id);
     }
 }
