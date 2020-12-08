@@ -2,10 +2,20 @@
 
 <div class="container-fluid myContainer">
     <div class="header">
-        <h1>The Kitchen</h1>
+        <h1><span @onclick="BackHome">The Kitchen</span></h1>
     </div>
     <div class="main">
         @Body
     </div>
     
 </div>
+
+@code {
+
+    @inject NavigationManager NavigationManager;
+
+    protected void BackHome()
+    {
+        NavigationManager.NavigateTo("/", false);
+    }
+}

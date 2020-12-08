@@ -7,7 +7,7 @@ namespace Kitchen.Components
     {
         [Inject]
         protected IRecipeService Service { get; set; }
-        protected Kitchen.Model.Review Review { get; set; } = new Model.Review();
+        protected Model.Review Review { get; set; } = new Model.Review();
 
         [Parameter]
         public string RecipeId { get; set; }

@@ -3,6 +3,7 @@ using Kitchen.Model;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System;
 
 namespace Kitchen.Api.Services
 {
@@ -75,15 +76,16 @@ namespace Kitchen.Api.Services
             return result;
         }
 
-        public async Task AddReview(Kitchen.Model.Review review)
+        public async Task AddReview(Review review)
         {
-            Kitchen.Api.Models.Review dbReview = new Models.Review
+            Models.Review dbReview = new Models.Review
             {
                 Name = review.Name,
                 Email = review.Email,
                 Description = review.Description,
                 Rating = review.Rating,
                 RecipeId = review.RecipeId,
+                CreatedDate = DateTime.Now,
                 Type = 1
             };
 

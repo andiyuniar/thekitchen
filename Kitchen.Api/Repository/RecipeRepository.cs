@@ -48,7 +48,8 @@ namespace Kitchen.Api.Repository
         {
             try
             {
-                return await _recipes.Find(recipe => recipe.Id == id && recipe.Type == 0).FirstOrDefaultAsync();
+                return await _recipes.Find(recipe => recipe.Id == id && recipe.Type == 0)
+                    .FirstOrDefaultAsync();
             }
             catch (Exception)
             {
@@ -56,6 +57,11 @@ namespace Kitchen.Api.Repository
             }
         }
 
+        /// <summary>
+        /// Add new review data
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
         public async Task AddReview(Review data)
         {
             try
@@ -68,11 +74,17 @@ namespace Kitchen.Api.Repository
             }
         }
 
+        /// <summary>
+        /// Get all reviews
+        /// </summary>
+        /// <param name="recipeId"></param>
+        /// <returns></returns>
         public async Task<IEnumerable<Review>> GetReviews(string recipeId)
         {
             try
             {
-                return await _reviews.Find(data => data.RecipeId == recipeId).ToListAsync();
+                return await _reviews.Find(data => data.RecipeId == recipeId)
+                    .SortByDescending(data => data.CreatedDate).ToListAsync();
             }
             catch (Exception)
             {

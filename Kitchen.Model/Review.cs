@@ -15,5 +15,7 @@ namespace Kitchen.Model
         public string Description { get; set; }
         public int Rating { get; set; }
         public string RecipeId { get; set; }
+
+        public DateTime CreatedDate { get; set; }
     }
 }

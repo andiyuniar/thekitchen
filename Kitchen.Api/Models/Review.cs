@@ -1,5 +1,6 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
+using System;
 
 namespace Kitchen.Api.Models
 {
@@ -12,5 +13,8 @@ namespace Kitchen.Api.Models
 
         [BsonRepresentation(BsonType.ObjectId)]
         public string RecipeId { get; set; }
+
+        [BsonRepresentation(BsonType.DateTime)]
+        public DateTime CreatedDate { get; set; }
     }
 }
