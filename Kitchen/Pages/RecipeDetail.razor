@@ -22,10 +22,8 @@ else
                         </div>
                     </div>
                     <Content Ingredients="@Recipe.Ingredients" Instructions="@Recipe.Instructions" />
-                    <CascadingValue Value="@Recipe.Id" IsFixed="true">
-                        <ReviewForm />
-                        <ReviewList />
-                    </CascadingValue>
+                    <ReviewForm OnReviewCreated="ReviewCreated" RecipeId="@Recipe.Id" />
+                    <ReviewList Reviews="@Reviews" />
                 </div>
             </div>
         </card>

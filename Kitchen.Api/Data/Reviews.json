@@ -1,0 +1,17 @@
+{
+	"_id": {
+		"$oid": "5fcdef214a29d02a8c4339b5"
+	},
+	"Type": {
+		"$numberInt": "1"
+	},
+	"Name": "PecintaLemak",
+	"Email": "pecintalemak@gmail.com",
+	"Description": "Tengkleng solo memang top. Saya suka rasa kuah gurihnya, ditambah dengah daging kambing yang menggoda selera. Apalagi kalo dimasak cukup lama sampai dagingnya lembut. Bisa nambah 3 porsi.",
+	"Rating": {
+		"$numberInt": "4"
+	},
+	"RecipeId": {
+		"$oid": "5fc74cb9d311e8aa2a88f702"
+	}
+}

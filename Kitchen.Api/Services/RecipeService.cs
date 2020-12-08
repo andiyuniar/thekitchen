@@ -83,7 +83,8 @@ namespace Kitchen.Api.Services
                 Email = review.Email,
                 Description = review.Description,
                 Rating = review.Rating,
-                RecipeId = review.RecipeId
+                RecipeId = review.RecipeId,
+                Type = 1
             };
 
             await repo.AddReview(dbReview);

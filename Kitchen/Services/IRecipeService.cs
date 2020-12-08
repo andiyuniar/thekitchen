@@ -8,7 +8,7 @@ namespace Kitchen.Services
     {
         Task<IEnumerable<Recipe>> GetRecipes();
         Task<RecipeDetail> GetRecipeById(string id);
-        Task AddReview(Review review);
+        Task<bool> AddReview(Review review);
         Task<IEnumerable<Review>> GetReviews(string recipeId);
     }
 }

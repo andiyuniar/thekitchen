@@ -1,5 +1,7 @@
 ﻿using Kitchen.Model;
 using Newtonsoft.Json;
+using System;
+using System.Text;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -37,9 +39,19 @@ namespace Kitchen.Services
             return result.Data;
         }
 
-        public Task AddReview(Review review)
+        public async Task<bool> AddReview(Review review)
         {
-            throw new System.NotImplementedException();
+            using var request = new HttpRequestMessage(HttpMethod.Post, "api/recipe/addreview");
+            var json = JsonConvert.SerializeObject(review);
+            using var stringContent = new StringContent(json, Encoding.UTF8, "application/json");
+            request.Content = stringContent;
+
+            using var response = await httpClient.SendAsync(request);
+            response.EnsureSuccessStatusCode();
+
+            var jsonResult = await response.Content.ReadAsStringAsync();
+            var result = JsonConvert.DeserializeObject <ResponseModel<bool>>(jsonResult);
+            return result.Data;
         }
 
         public async Task<IEnumerable<Review>> GetReviews(string recipeId)

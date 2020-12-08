@@ -1,17 +1,31 @@
-﻿using Microsoft.AspNetCore.Components;
+﻿using Kitchen.Services;
+using Microsoft.AspNetCore.Components;
 
 namespace Kitchen.Components
 {
     public class ReviewFormBase : ComponentBase
     {
+        [Inject]
+        protected IRecipeService Service { get; set; }
         protected Kitchen.Model.Review Review { get; set; } = new Model.Review();
 
-        [CascadingParameter]
+        [Parameter]
         public string RecipeId { get; set; }
 
-        protected void HandleValidSubmit()
-        {
+        [Parameter]
+        public EventCallback<bool>OnReviewCreated { get; set; }
 
+        protected async void HandleValidSubmit()
+        {
+            Review.RecipeId = RecipeId;
+            bool result = await Service.AddReview(Review);
+
+            if (result)
+            {
+                Review = new Model.Review();
+                StateHasChanged();
+                await OnReviewCreated.InvokeAsync(true);
+            }
         }
     }
 }
