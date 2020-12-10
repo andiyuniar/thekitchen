@@ -10,16 +10,18 @@
 }
 else
 {
-    <div class="main-overview">
+    <div class="row">
         @foreach (Recipe item in Recipes)
         {
-            <div class="card">
-                <div class="card-header">
-                    <b>@item.Title</b>
-                </div>
-                <img class="card-img-top imageThumbnail" src="@item.ImgUrl" />
-                <div class="card-footer">
-                    <a href="/detail/@item.Id" class="btn btn-primary" role="button" aria-pressed="true">Details</a>
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-header">
+                        <span>@item.Title</span>
+                    </div>
+                    <img class="card-img-top img-fluid" src="@item.ImgUrl" />
+                    <div class="card-footer">
+                        <a href="/detail/@item.Id" class="btn btn-primary" role="button" aria-pressed="true">Details</a>
+                    </div>
                 </div>
             </div>
         }
